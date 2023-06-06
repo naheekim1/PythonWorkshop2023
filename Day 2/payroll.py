@@ -3,31 +3,34 @@ STATETAX = 0.08
 FEDERALTAX = 0.12
 UNIONFEES = 0.02
 
+def max(a, b):
+    return a if a > b else b
+
 class Employee:
     #sets the state tax owed by the employee
     #Returns: state taxes as a float
     def stateTax(self):
-        pass
+        return self.__gross * STATETAX
     
     #sets the federal tax owed by the employee
     #Returns: federal taxes as a float
     def federalTax(self):
-        pass
+        return self.__gross * FEDERALTAX
 
     #sets the unions fees owed by the employee
     #Returns: union fees as a float
     def unionFees(self):
-        pass
+        return self.__gross * UNIONFEES
     
     #sets the total income earned by the employee
     #Returns: gross income as a float
     def grossIncome(self):
-        pass
+        return self.__hours * self.__rate + max(0, self.__hours - 40) * self.__rate * 0.5 + max(0, self.__hours - 52) * self.__rate * 0.5
 
     #Computes the net income of the employee assuming fees, taxes, and gross income have all been computed first
     #Returns: net income as a float
     def netIncome(self):
-        pass
+        return self.__gross - (self.__state + self.__union + self.__fed)
 
     def __init__(self, nm, hrs, rte):
         self.__name = nm #Employee name
@@ -41,7 +44,7 @@ class Employee:
 
    #Converts the employee into a string
     def __str__(self):
-        pass
+        return "----------------\nName: " + self.__name + "\nHours: " + str(self.__hours) + "\nRate: " + str(self.__rate) + "\n"
 
 def main():
     output = ""

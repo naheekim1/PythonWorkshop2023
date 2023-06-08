@@ -3,33 +3,33 @@ from math import * #Bad practice using import *
 
 class Point:
     def __init__(self, xCoord, yCoord):
-        self._x = xCoord
-        self._y = yCoord
+        self.__x = xCoord
+        self.__y = yCoord
 
     def distanceToPoint(self, point2):
-        return sqrt((self._x - point2._x)**2 + (self._y - point2._y)**2)
+        return sqrt((self.__x - point2.__x)**2 + (self.__y - point2.__y)**2)
     
     def magnitude(self):
         origin = Point(0, 0)
         return self.distanceToPoint(origin)
     
     def addToY(self, num):
-        self._y += num
+        self.__y += num
     
     def getX(self):
-        return self._x
+        return self.__x
     
     def getY(self):
-        return self._y
+        return self.__y
     
     def setX(self, newX):
-        self._x = newX
+        self.__x = newX
     
     def setY(self, newY):
-        self._y = newY
+        self.__y = newY
     
     def __str__(self):
-        return "(" + str(self._x) + ", " + str(self._y) + ")"
+        return "(" + str(self.__x) + ", " + str(self.__y) + ")"
 
 def main():
     a = Point(4, 6)

@@ -13,7 +13,7 @@ def main():
 
     if 2 in x:
         print("Yes")
-    if not 6 in x:
+    if 6 not in x:
         print("No")
 
 main()
